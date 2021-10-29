@@ -30,12 +30,12 @@ namespace falling
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.textBoxY = new System.Windows.Forms.TextBox();
             this.textBoxV = new System.Windows.Forms.TextBox();
@@ -46,7 +46,6 @@ namespace falling
             this.textBoxDelta = new System.Windows.Forms.TextBox();
             this.chartxt = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,9 +60,9 @@ namespace falling
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonParse = new System.Windows.Forms.Button();
             this.buttonPreStart = new System.Windows.Forms.Button();
+            this.axis1 = new myUCLib.Axis();
             ((System.ComponentModel.ISupportInitialize)(this.chartxt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxX
@@ -124,43 +123,35 @@ namespace falling
             // 
             // chartxt
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartxt.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartxt.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartxt.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartxt.Legends.Add(legend3);
             this.chartxt.Location = new System.Drawing.Point(12, 345);
             this.chartxt.Name = "chartxt";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartxt.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartxt.Series.Add(series3);
             this.chartxt.Size = new System.Drawing.Size(300, 95);
             this.chartxt.TabIndex = 8;
             this.chartxt.Text = "chart1";
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(339, 345);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(300, 95);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chartyt";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(233, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(512, 256);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -245,6 +236,11 @@ namespace falling
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // buttonStop
             // 
             this.buttonStop.Enabled = false;
@@ -276,11 +272,35 @@ namespace falling
             this.buttonPreStart.UseVisualStyleBackColor = true;
             this.buttonPreStart.Click += new System.EventHandler(this.buttonPreStart_Click);
             // 
+            // axis1
+            // 
+            this.axis1.AllowDrop = true;
+            this.axis1.axis_bkcolor = System.Drawing.Color.White;
+            this.axis1.axis_color = System.Drawing.Color.Gray;
+            this.axis1.Axis_Type = ((byte)(1));
+            this.axis1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.axis1.E_x = 0;
+            this.axis1.E_y = 0;
+            this.axis1.Location = new System.Drawing.Point(196, 33);
+            this.axis1.Name = "axis1";
+            this.axis1.Pix_color = System.Drawing.Color.Black;
+            this.axis1.Pix_Size = 2F;
+            this.axis1.Pix_type = ((byte)(1));
+            this.axis1.Size = new System.Drawing.Size(578, 281);
+            this.axis1.TabIndex = 23;
+            this.axis1.x_Base = 1F;
+            this.axis1.x_Name = "X";
+            this.axis1.y_Base = 1F;
+            this.axis1.y_Name = "Y";
+            this.axis1.z_Base = 1F;
+            this.axis1.z_Name = "Z";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.axis1);
             this.Controls.Add(this.buttonPreStart);
             this.Controls.Add(this.buttonParse);
             this.Controls.Add(this.buttonStop);
@@ -293,7 +313,6 @@ namespace falling
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.chartxt);
             this.Controls.Add(this.textBoxDelta);
@@ -308,7 +327,6 @@ namespace falling
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chartxt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +344,6 @@ namespace falling
         private System.Windows.Forms.TextBox textBoxDelta;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartxt;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -341,6 +358,7 @@ namespace falling
         private System.Windows.Forms.Button buttonStop;
         private System.Windows.Forms.Button buttonParse;
         private System.Windows.Forms.Button buttonPreStart;
+        private myUCLib.Axis axis1;
     }
 }
 
