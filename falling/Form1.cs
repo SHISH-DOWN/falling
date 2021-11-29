@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Windows.Forms;
 using myUCLib;
@@ -16,7 +17,8 @@ namespace falling
     
     public partial class Form1 : Form
     {
-        public double x,y,xprev,yprev,x0,y0,v,v0,u,vx,vy,vxprev,vyprev,vx0,vy0,R,dt,n,Fx,Fy,m,dt2,xmax,ymax,tmax,angle,ax,ay,t,t1;
+        public double x,y,xprev,yprev,x0,y0,v,v0,u,vx,vy,vxprev,vyprev,vx0,vy0,dt,n,Fx,Fy,m,dt2,xmax,ymax,tmax,angle,ax,ay,t,t1;
+        public static double R = Math.Pow(-1, 0.5);
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -47,7 +49,7 @@ namespace falling
             axis1.Pix_Size = 0.05f;
             axis1.PixDraw((float)x, (float)y, Color.Red, 2);
             axis1.Pix_Size = 0.005f;
-            axis1.PixDraw((float)x, (float)y, Color.Blue, 1);
+            axis1.PixDraw((float)x, (float)y, Color.Blue, 2);
             axis1.DinToPic();
 
             if (yprev<=0)
@@ -67,6 +69,10 @@ namespace falling
             xmax = Double.MinValue;
             ymax = Double.MinValue;
             timer1.Enabled = true;
+            if (xmax == Double.MinValue || ymax==Double.MinValue)
+            {
+                throw new ArgumentException();
+            }
             
 
         }
