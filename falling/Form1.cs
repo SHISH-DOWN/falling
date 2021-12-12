@@ -17,7 +17,7 @@ namespace falling
     public partial class Form1 : Form
     {
         public double x,y,xprev,yprev,x0,y0,v,v0,u,vx,vy,vxprev,vyprev,vx0,vy0,R,dt,n,Fx,Fy,m,dt2,xmax,ymax,tmax,angle,ax,ay,t,t1;
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             Fx = -R * Pow(v, n) * vxprev;
@@ -67,7 +67,8 @@ namespace falling
             xmax = Double.MinValue;
             ymax = Double.MinValue;
             timer1.Enabled = true;
-            
+           
+
 
         }
 
